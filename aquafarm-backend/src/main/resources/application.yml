@@ -1,0 +1,54 @@
+
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: aquafarm-backend
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/aquafarm_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Kolkata
+    username: root
+    password: admin@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # ========== JPA / HIBERNATE ==========
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+  # ========== JACKSON (JSON) ==========
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: Asia/Kolkata
+    default-property-inclusion: non_null
+
+# ========== JWT CONFIG ==========
+jwt:
+  secret: YourSuperSecretKeyForAquaFarmPro2026MustBe256BitsLongMinimum!!
+  expiration: 86400000  # 24 hours in milliseconds
+
+# ========== LOGGING ==========
+logging:
+  level:
+    com.aquafarm: DEBUG
+    org.springframework.security: DEBUG
+    spring:
+      mail:
+        host: smtp.gmail.com
+        port: 587
+        username: venkyyadav103@gmail.com
+        password: crvmbgapccckaloa
+        properties:
+          mail:
+            smtp:
+              auth: true
+              starttls:
+                enable: true
+
